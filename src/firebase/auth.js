@@ -21,8 +21,8 @@ export const doPasswordUpdate = (password) =>
 auth.currentUser.updatePassword(password);
 
 
-export const doAddDeck = (passwordp) =>
-auth.currentUser.updatePassword(password);
+// export const doAddDeck = (passwordp) =>
+// auth.currentUser.updatePassword(password);
 
 
 

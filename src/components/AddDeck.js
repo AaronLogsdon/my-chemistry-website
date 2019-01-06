@@ -6,12 +6,12 @@ const AddDeck = () => (
   </div>
 );
 
-const AddDeckButton = () =>
-  <button
-    type="button"
-    onClick={auth.doAddDeck}
-  >
-    Add a deck
-  </button>
+// const AddDeckButton = () =>
+//   <button
+//     type="button"
+//     onClick={auth.doAddDeck}
+//   >
+//     Add a deck
+//   </button>
 
-export {AddDeck, AddDeckButton};
+export default AddDeck;

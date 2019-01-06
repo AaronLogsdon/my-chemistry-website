@@ -42,8 +42,17 @@ const NavigationAuth = () =>
               <NavbarBrand href="/">Account</NavbarBrand>
             </NavItem>
           </LinkContainer>
-          <LinkContainer to={routes.SIGN_IN}>
-            <NavItem>
+          <NavItem>
+            <AuthUserContext.Consumer>
+              {authUser =>
+                <div>
+                  <h3>{authUser.uid}</h3>
+                </div>
+              }
+            </AuthUserContext.Consumer>
+          </NavItem>
+            <LinkContainer to={routes.SIGN_IN}>
+          <NavItem>
               <SignOutButton />
             </NavItem>
           </LinkContainer>
