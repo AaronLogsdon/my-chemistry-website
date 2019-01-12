@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Container, Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { withRouter } from 'react-router-dom';
 import { PasswordForgetLink } from './PasswordForget';
 import { SignUpLink } from './SignUp';
@@ -7,12 +7,19 @@ import { auth } from '../firebase';
 import * as routes from '../constants/routes';
 
 
+
+
 const divStyle = {
   margin: 'auto',
-  width: '50%',
-  border: '3px solid black',
+  width: '40%',
+  height: '70vh',
+  border: 'double 10px white',
   padding: '10px',
+  backgroundColor: "#2086D3",
+  color: "white",
+  transform: "translateY(10%)"
 };
+
 
 
 const byPropKey = (propertyName, value) => () => ({
@@ -24,10 +31,11 @@ const SignInPage = ({ history }) =>
   <div style={divStyle}>
     <Container>
       <h1>Sign In</h1>
-      <p>If you are not signed in after 10 seconds of hitting sumbit, you must re-enter your information as it may be invalid. Thank you!</p>
+      <p>If you are not signed in after 10 seconds of hitting sumbit, you must re-enter your information as it may be invalid. Enter the necessary details below. Thank you!</p>
       <SignInForm history={history} />
-      <PasswordForgetLink />
-      <SignUpLink />
+      <p></p>
+      <h5><PasswordForgetLink/></h5>
+      <h5><SignUpLink /></h5>
     </Container>
   </div>
 
@@ -83,10 +91,10 @@ class SignInForm extends Component {
       password === '' ||
       email === '';
 
-    return (
-    
-        <Form onSubmit={this.onSubmit}>
-        
+    return  (
+
+        <Form onSubmit={this.onSubmit}>        
+  
           <FormGroup row>
           
             <Label for="exampleEmail" sm={2}>Email</Label>
@@ -118,13 +126,13 @@ class SignInForm extends Component {
           
           <FormGroup check row>
             <Col sm={{ size: 5, offset: 2 }}>
-              <Button variant="primary" disabled={isInvalid} type="submit">Submit</Button>
+              <Button color="primary" outline color="danger" variant="danger" disabled={isInvalid} type="submit">Submit</Button>
             </Col>
           </FormGroup>
          
           { error && <p>{error.message}</p> }
+
         </Form>
-     
     );
   }
 }

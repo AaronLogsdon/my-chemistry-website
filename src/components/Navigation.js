@@ -14,19 +14,30 @@ import {
 
 import { LinkContainer } from "react-router-bootstrap";
 
+const divStyle = {
+  margin: 'auto',
+  width: '100%',
+  height: '10vh',
+  border: '30px white',
+  padding: '10px',
+  backgroundColor: "#2086D3",
+  color: "white",
+}
 
 const Navigation = ({authUser}) =>
+<div style={divStyle}>
   <AuthUserContext.Consumer>
     {authUser => authUser
       ? <NavigationAuth />
       : <NavigationNonAuth />
     }
   </AuthUserContext.Consumer>
+</div>
 
 
 const NavigationAuth = () =>
  
-<Navbar color="inverse" light expand="md">
+<Navbar color="inverse" dark expand="md">
   <LinkContainer to={routes.HOME}>
         <NavbarBrand href="/">Home</NavbarBrand>
   </LinkContainer>
@@ -42,7 +53,7 @@ const NavigationAuth = () =>
               <NavbarBrand href="/">Account</NavbarBrand>
             </NavItem>
           </LinkContainer>
-          <NavItem>
+          {/* <NavItem>
             <AuthUserContext.Consumer>
               {authUser =>
                 <div>
@@ -50,7 +61,7 @@ const NavigationAuth = () =>
                 </div>
               }
             </AuthUserContext.Consumer>
-          </NavItem>
+          </NavItem> */}
             <LinkContainer to={routes.SIGN_IN}>
           <NavItem>
               <SignOutButton />
@@ -62,7 +73,7 @@ const NavigationAuth = () =>
 
 const NavigationNonAuth = () =>
   
-<Navbar color="inverse" light expand="md">
+<Navbar color="inverse" dark expand="md">
     <LinkContainer to={routes.HOME}>
       <NavbarBrand href="/">Home</NavbarBrand>
     </LinkContainer>

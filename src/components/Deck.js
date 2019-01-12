@@ -6,13 +6,23 @@ import { StudyLink } from './Study';
 import { Game1Link } from './Game1';
 import { Game2Link } from './Game2';
 import { ViewLink } from './View';
+import styled from 'styled-components';
 
+const divStyle = {
+  margin: 'auto',
+  width: '95%',
+  height: '80vh',
+  border: 'double 10px white',
+  padding: '10px',
+  backgroundColor: "#2086D3",
+  color: "white",
+};
 
 class Deck extends Component {
   
   render() {
     return (
-      <div>
+      <div style={divStyle}>
         <h1>Decks</h1>
         {/* <ViewLink/>
         <TestLink/>
@@ -24,10 +34,11 @@ class Deck extends Component {
   }
 }
 
+
 const DeckLink = () =>
-  <p>
-    <Link to={routes.DECK}>Deck</Link>
-  </p>
+  <h3>
+    <Link to={routes.DECK} style = {{color: "silver"}}>Deck</Link>
+  </h3>
 
 export default withRouter(Deck);
 

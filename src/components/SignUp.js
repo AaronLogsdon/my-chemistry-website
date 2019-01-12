@@ -6,19 +6,25 @@ import * as routes from '../constants/routes';
 
 
 
+
+
 const divStyle = {
   margin: 'auto',
-  width: '50%',
-  border: '3px solid black',
+  width: '47%',
+  height: '70vh',
+  border: 'double 10px white',
   padding: '10px',
+  backgroundColor: "#2086D3",
+  color: "white",
+  transform: "translateY(10%)"
 };
 
 
 const SignUpPage = ({ history }) =>
-  <div div style = {divStyle}>
+  <div style = {divStyle}>
     <Container>
       <h1>Sign Up</h1>
-      <p>If you are not signed up and in after 10 seconds of hitting sumbit, you must re-enter your information as it may be invalid. Thank you!</p>
+      <p>If you are not signed up and in after 10 seconds of hitting sumbit, you must re-enter your information as it may be invalid. Enter the necessary details below. Thank you!</p>
       <SignUpForm history={history} />
     </Container>
   </div>
@@ -89,8 +95,21 @@ class SignUpForm extends Component {
     passwordOne === '' ||
     email === '' ||
     username === '';
+    
 
     return (
+
+    <div>
+      <style>
+          {
+            `.link {
+                color: "white"
+                
+              }`
+          }
+        </style>
+      
+
       <Form onSubmit={this.onSubmit}>
 
         <FormGroup row>
@@ -120,20 +139,20 @@ class SignUpForm extends Component {
         </FormGroup>
         
         <FormGroup row>
-            <Label for="examplePassword" sm={2}>passwordOne</Label>
+            <Label for="examplePassword" sm={2}>Password</Label>
             <Col sm={5}>
             <Input
               name="passwordOne"
               value={passwordOne}
               onChange={this.onChange}
               type="password"
-              placeholder="Password (six characters)"
+              placeholder="Password (>=6 characters)"
             />
             </Col>
           </FormGroup>
 
           <FormGroup row>
-            <Label for="examplePassword" sm={2}>PasswordTwo</Label>
+            <Label for="examplePassword" sm={2}>Confirm</Label>
             <Col sm={5}>
             <Input
               name="passwordTwo"
@@ -147,25 +166,26 @@ class SignUpForm extends Component {
           
           <FormGroup check row>
             <Col sm={{ size: 5, offset: 2 }}>
-              <Button variant="primary" disabled={isInvalid} type="submit">Submit</Button>
+              <Button color="primary" outline color="danger" variant="danger" disabled={isInvalid} type="submit" bsStyle="danger">Submit</Button>
             </Col>
           </FormGroup>
 
         { error && <p>{error.message}</p> }
 
       </Form>
+    </div>
     );
   }
 }
-
 
 
 const SignUpLink = () =>
   <p>
     Don't have an account?
     {' '}
-    <Link to={routes.SIGN_UP}>Sign Up</Link>
+    <Link to={routes.SIGN_UP} style = {{color: "red"}}>Sign Up</Link>
   </p>
+
 
 
 export default withRouter(SignUpPage);

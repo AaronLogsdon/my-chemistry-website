@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import { Container, Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { auth } from '../firebase';
 import * as routes from '../constants/routes';
 
+const divStyle = {
+  margin: 'auto',
+  width: '95%',
+  height: '80vh',
+  border: 'double 10px white',
+  padding: '10px',
+  backgroundColor: "#2086D3",
+  color: "white",
+};
+
 const PasswordForgetPage = () =>
-  <div>
+ <div style={divStyle}>
     <h1>PasswordForget</h1>
-    <p>An email will be sent to your email account upon pressing the reset button.</p>
+    <p>An email will be sent to your email account upon pressing the reset button. Enter your email below.</p>
     <PasswordForgetForm />
   </div>
 
@@ -41,6 +51,10 @@ class PasswordForgetForm extends Component {
     event.preventDefault();
   }
 
+  onChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
   render() {
     const {
       email,
@@ -50,26 +64,42 @@ class PasswordForgetForm extends Component {
     const isInvalid = email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          value={this.state.email}
-          onChange={event => this.setState(byPropKey('email', event.target.value))}
-          type="text"
-          placeholder="Email Address"
-        />
-        <button disabled={isInvalid} type="submit">
-          Reset My Password
-        </button>
+      <Form onSubmit={this.onSubmit}>        
+  
+          <FormGroup row>
+          
+            <Label for="exampleEmail" sm={2}>Email</Label>
+            
+            <Col sm={5}>
+            <Input
+              name="email"
+              value={email}
+              onChange={this.onChange}
+              type="text"
+              placeholder="Email Address"
+              getRef={(input) => (this.username = input)}
+            />
+            </Col>
+          </FormGroup>
 
-        { error && <p>{error.message}</p> }
-      </form>
+          <FormGroup check row>
+            <Col sm={{ size: 5, offset: 2 }}>
+              <Button color="primary" outline color="danger" variant="danger" disabled={isInvalid} type="submit">Reset password</Button>
+            </Col>
+          </FormGroup>
+         
+          { error && <p>{error.message}</p> }
+
+        </Form>
     );
   }
 }
 
+
+
 const PasswordForgetLink = () =>
   <p>
-    <Link to={routes.PASSWORD_FORGET}>Forgot Password?</Link>
+    <Link to={routes.PASSWORD_FORGET} style = {{color: "red"}}>Forgot Password?</Link>
   </p>
 
 export default PasswordForgetPage;
