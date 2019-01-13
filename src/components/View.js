@@ -143,7 +143,7 @@ class Flashcard extends Component {
 
 const Count = ({i, total}) =>
   <div>
-    Question {i} / {total - 1} 
+    Flashcard {i} / {total - 1} 
   </div>;
 
 
