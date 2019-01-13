@@ -11,7 +11,7 @@ const divStyle = {
   border: 'double 10px white',
   padding: '10px',
   backgroundColor: "#2086D3",
-  color: "white",
+  color: "navy"
 };
 
 const questions = ['term 1', 'term 2', 'term 3', 'term 4', 'term 5', 'term 6', 'term 7', 'term 8', 'term 9', 'term 10' , 'null'];
@@ -65,7 +65,7 @@ class Deck extends Component {
       getAnswer(this.state.i) === getAnswer(1);
 
     return (
-      <div>
+      <div style={divStyle}>
         {
           this.state.total 
             ? <Count i={this.state.i} total={this.state.total} />
