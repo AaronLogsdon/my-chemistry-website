@@ -183,7 +183,7 @@ const SignUpLink = () =>
   <p>
     Don't have an account?
     {' '}
-    <Link to={routes.SIGN_UP} style = {{color: "red"}}>Sign Up</Link>
+    <Link to={routes.SIGN_UP} style = {{color: "navy"}}>Sign Up</Link>
   </p>
 
 

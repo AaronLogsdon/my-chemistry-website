@@ -17,7 +17,7 @@ import { LinkContainer } from "react-router-bootstrap";
 const divStyle = {
   margin: 'auto',
   width: '100%',
-  height: '10vh',
+  height: '12vh',
   border: '30px white',
   padding: '10px',
   backgroundColor: "#2086D3",

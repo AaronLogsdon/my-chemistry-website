@@ -72,7 +72,7 @@ class PasswordChangeForm extends Component {
               value={passwordTwo}
               onChange={this.onChange}
               type="password"
-              placeholder="Confirm Password"
+              placeholder="Confirm Password "
             />
             </Col>
           </FormGroup>

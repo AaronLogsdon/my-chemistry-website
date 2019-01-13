@@ -1,0 +1,63 @@
+.card {
+    border: 1px solid blue;
+    border-radius: 4px;
+    padding: 30px;
+    margin: 20px;
+    
+  }
+  
+  button {
+    color: white;
+    padding: 10px 20px;
+    font-size: large;
+    margin-bottom: 10px;
+  }
+  
+  .nextButton{
+    background: blue;
+  }
+  
+  .previousButton{
+    background: blue;
+  }
+  
+  .answerButton{
+    background: navy;
+  }
+  
+  
+  
+  
+  /* I'm done, let https://davidwalsh.name/css-flip take over */
+  
+  .flip-container.hover .flipper, .flip-container.flip .flipper {
+    transform: rotateY(180deg);
+  }
+  
+  /* entire container, keeps perspective */
+  .flip-container {
+    perspective: 1000px;
+  }
+  
+  /* flip speed goes here */
+  .flipper {
+    transition: 0.3s;
+    transform-style: preserve-3d;
+  }
+  
+  /* hide back of pane during swap */
+  .front, .back {
+    backface-visibility: hidden;
+  }
+  
+  /* front pane, placed above back */
+  .front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+  }
+  
+  /* back, initially hidden pane */
+  .back {
+    transform: rotateY(180deg);
+  }

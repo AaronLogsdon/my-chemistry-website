@@ -10,5 +10,6 @@ export const DECK = '/deck';
 export const GAME1 = '/game1';
 export const GAME2 = '/game2';
 export const VIEW = '/view';
-export const ADD_DECK = '/addeck'
+export const LIST = '/list'
+
 

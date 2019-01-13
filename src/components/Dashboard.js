@@ -17,6 +17,7 @@ const divStyle = {
 const LinkToDeck = ({ history }) =>
 <div style={divStyle}>
 <h1>Dashboard</h1>
+<p></p>
 <DeckLink/>
 </div>
 

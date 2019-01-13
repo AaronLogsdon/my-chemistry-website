@@ -18,7 +18,8 @@ import Study from './Study';
 import Game1 from './Game1';
 import Game2 from './Game2';
 import View from './View';
-import AddDeck from './AddDeck';
+import List from './List';
+
 
 
 
@@ -49,7 +50,7 @@ const App = () =>
       <Route exact path={routes.GAME1} component={Game1} />
       <Route exact path={routes.GAME2} component={Game2} />
       <Route exact path={routes.VIEW} component={View} />
-      <Route exact path={routes.ADD_DECK} component={AddDeck} />
+      <Route exact path={routes.LIST} component={List} />
     </div>
   </Router>
 

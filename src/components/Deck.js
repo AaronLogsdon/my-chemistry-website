@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { Link, withRouter, } from 'react-router-dom';
 import * as routes from '../constants/routes';
@@ -7,6 +8,7 @@ import { Game1Link } from './Game1';
 import { Game2Link } from './Game2';
 import { ViewLink } from './View';
 import styled from 'styled-components';
+import FlashcardApp from 'react-flashcard-app';
 
 const divStyle = {
   margin: 'auto',
@@ -18,26 +20,21 @@ const divStyle = {
   color: "white",
 };
 
+
 class Deck extends Component {
   
   render() {
     return (
       <div style={divStyle}>
-        <h1>Decks</h1>
-        {/* <ViewLink/>
-        <TestLink/>
-        <StudyLink/>
-        <Game1Link/>
-        <Game2Link/> */}
+         <ViewLink/>
       </div>
     );
   }
 }
 
-
 const DeckLink = () =>
   <h3>
-    <Link to={routes.DECK} style = {{color: "silver"}}>Deck</Link>
+    <Link to={routes.DECK} style = {{color: "navy"}}>Deck</Link>
   </h3>
 
 export default withRouter(Deck);
