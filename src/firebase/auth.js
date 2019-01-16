@@ -4,6 +4,10 @@ import { auth } from './firebase';
 export const doCreateUserWithEmailAndPassword = (email, password) =>
   auth.createUserWithEmailAndPassword(email, password);
 
+// Create deck
+// export const doCreateDeckWithNameAndTermsAndDefinitions = (DeckName, Terms, Definitions) =>
+//   auth.createDeckWithNameAndTermsAndDefinitions(DeckName, Terms, Definitions);
+
   // Sign In
 export const doSignInWithEmailAndPassword = (email, password) =>
 auth.signInWithEmailAndPassword(email, password);
@@ -21,8 +25,8 @@ export const doPasswordUpdate = (password) =>
 auth.currentUser.updatePassword(password);
 
 
-// export const doAddDeck = (passwordp) =>
-// auth.currentUser.updatePassword(password);
+
+
 
 
 

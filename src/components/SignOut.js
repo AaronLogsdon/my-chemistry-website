@@ -1,15 +1,20 @@
 import React from 'react';
-
+import {Button, Form, FormGroup} from 'reactstrap';
 import { auth } from '../firebase';
 
 
 const SignOutButton = () =>
-  <button
+<Form>
+<FormGroup>
+  <Button
     onClick={auth.doSignOut}
-    style = {{backgroundColor: "white"}}
-    style = {{color: "blue"}}
+    color = "primary"
+    variant = "primary"
   >
     Sign Out
-  </button>
+  </Button>
+  </FormGroup>
+  </Form>
 
 export default SignOutButton;
+

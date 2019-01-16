@@ -1,14 +1,10 @@
-
 import React, { Component } from 'react';
 import { Link, withRouter, } from 'react-router-dom';
 import * as routes from '../constants/routes';
-import { TestLink } from './Test';
-import { StudyLink } from './Study';
-import { Game1Link } from './Game1';
-import { Game2Link } from './Game2';
-import { ViewLink } from './View';
-import styled from 'styled-components';
-import FlashcardApp from 'react-flashcard-app';
+import ViewButton from './ViewButton';
+import DeleteDeckButton from './DeleteDeckButton';
+
+
 
 const divStyle = {
   margin: 'auto',
@@ -26,7 +22,9 @@ class Deck extends Component {
   render() {
     return (
       <div style={divStyle}>
-         <ViewLink/>
+         <ViewButton/>
+         <p></p>
+         <DeleteDeckButton/>
       </div>
     );
   }

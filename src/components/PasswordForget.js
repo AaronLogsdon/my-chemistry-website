@@ -16,7 +16,7 @@ const divStyle = {
 
 const PasswordForgetPage = () =>
  <div style={divStyle}>
-    <h1>PasswordForget</h1>
+    <h1>Password forget</h1>
     <p>An email will be sent to your email account upon pressing the reset button. Enter your email below.</p>
     <PasswordForgetForm />
   </div>

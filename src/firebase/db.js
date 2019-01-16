@@ -8,10 +8,14 @@ export const doCreateUser = (id, username, email) =>
     email,
   });
 
-  // export const doAddDeck = (id, ) =>
-  // db.ref(`users/${uid}/decks/${deck.id}`).set(deck);
 
 export const onceGetUsers = () =>
   db.ref('users').once('value');
 
-// Other Entity APIs ...
+
+// export const doCreateDeck = (id, DeckName, Terms, Definitions) =>
+//   db.ref(`users/${id}`).set({
+//     DeckName,
+//     Terms,
+//     Definitions,
+//   });

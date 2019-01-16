@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter, } from 'react-router-dom';
 import * as routes from '../constants/routes';
 import './View.css';
+import { Container, Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 
 const divStyle = {
@@ -14,16 +15,18 @@ const divStyle = {
   color: "navy"
 };
 
-const questions = ['term 1', 'term 2', 'term 3', 'term 4', 'term 5', 'term 6', 'term 7', 'term 8', 'term 9', 'term 10' , 'null'];
-const answers = ['defintion 1', 'defintion 2', 'defintion 3', 'defintion 4', 'defintion 5', 'defintion 6', 'defintion 7', 'defintion 8', 'defintion 9', 'defintion 10'];
+
+
+const terms = ['term 1', 'term 2', 'term 3', 'term 4', 'term 5', 'term 6', 'term 7', 'term 8', 'term 9', 'term 10' , 'null'];
+const definitions = ['defintion 1', 'defintion 2', 'defintion 3', 'defintion 4', 'defintion 5', 'defintion 6', 'defintion 7', 'defintion 8', 'defintion 9', 'defintion 10'];
 function getCount() {
-  return questions.length;
+  return terms.length;
 }
 function getQuestion(i) {
-  return <div>{questions[i - 1]}</div>;
+  return <div>{terms[i - 1]}</div>;
 }
 function getAnswer(i) {
-  return answers[i - 1];
+  return definitions[i - 1];
 }
 
 class Deck extends Component {
@@ -56,6 +59,8 @@ class Deck extends Component {
   
   render() {
 
+    console.log(this.props);
+
     const isInvalidNext =
       getQuestion(this.state.i) === getQuestion(10) ||
       getAnswer(this.state.i) === getAnswer(10);
@@ -78,23 +83,45 @@ class Deck extends Component {
         {
           (this.state.total && this.state.i >= this.state.total)
             ? null
-            : <button 
-                className="nextButton"
-                disabled={isInvalidNext} 
-                onClick={this.nextQuestion.bind(this)}>
-                next...
-              </button>
+            : 
+            <div>
+              <Form>
+                <FormGroup>
+                <Col sm={{ size: 5, offset: 0 }}>
+                  <Button 
+                    color="danger" 
+                    variant="danger" 
+                    size = "lg"
+                    disabled={isInvalidPrevious}
+                    onClick={this.previousQuestion.bind(this)}>
+                    previous...
+                  </Button>
+                </Col>
+                </FormGroup>
+              </Form>
+            </div>
         }
 
         {
           (this.state.total && this.state.i >= this.state.total)
             ? null
-            : <button 
-                className="previousButton" 
-                disabled={isInvalidPrevious}
-                onClick={this.previousQuestion.bind(this)}>
-                previous...
-              </button>
+            : 
+            <div>
+              <Form>
+                <FormGroup>
+                <Col sm={{ size: 5, offset: 0 }}>
+                  <Button 
+                    color="success" 
+                    variant="success" 
+                    size = "lg" 
+                    disabled={isInvalidNext} 
+                    onClick={this.nextQuestion.bind(this)}>
+                    next...
+                  </Button>
+                 </Col>
+                 </FormGroup>
+              </Form>
+            </div>
         }
       </div>
     );
@@ -135,7 +162,13 @@ class Flashcard extends Component {
             </div>
         	</div>
         </div>
-        <button className="answerButton" onClick={this.flip.bind(this)}>flip</button>
+        <Form>
+            <FormGroup check row>
+            <Col sm={{ size: 5, offset: 0 }}>
+              <Button  onClick={this.flip.bind(this)} color="danger"  variant="danger" size = "lg">flip</Button>
+            </Col>
+            </FormGroup>
+        </Form>
       </center></div>
     );
   }
@@ -147,11 +180,6 @@ const Count = ({i, total}) =>
   </div>;
 
 
-const ViewLink = () =>
-  <h3>
-    <Link to={routes.VIEW} style = {{color: "navy"}}>View</Link>
-  </h3>
-
 export default withRouter(Deck, Flashcard);
 
-export {ViewLink};
+

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter} from 'react-router-dom';
 import { DeckLink } from './Deck';
-import styled from 'styled-components';
+import AddDeckButton from './AddDeckButton';
 
 const divStyle = {
   margin: 'auto',
@@ -19,21 +19,10 @@ const LinkToDeck = ({ history }) =>
 <h1>Dashboard</h1>
 <p></p>
 <DeckLink/>
+<p></p>
+<AddDeckButton/>
 </div>
 
-
-
-
-// class Dashboard extends Component {
-  
-//   render() { 
-//       return ( 
-//         <div>
-//         <h1>Dashboard</h1> 
-//         </div>
-//       );
-//     }
-//   }
 
 export default withRouter(LinkToDeck);
 // export {Dashboard};
